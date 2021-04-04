@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 
-export const isFalsy = (value: any) => value === 0 ? false : !value;
+export const isFalsy = (value: any) => (value === 0 ? false : !value);
 
 export const cleanObject = (object: object) => {
-  const result = {...object}
-  Object.keys(result).forEach(key => {
+  const result = { ...object };
+  Object.keys(result).forEach((key) => {
     //@ts-ignore
-    const value = result[key]
-    if(isFalsy(value)) {
+    const value = result[key];
+    if (isFalsy(value)) {
       //@ts-ignore
-      delete result[key]
+      delete result[key];
     }
-  })
-  return result 
-}
+  });
+  return result;
+};
 
 export const useMount = (callback: () => void) => {
   useEffect(() => {
-    callback()
-  }, [])
-}
+    callback();
+  }, []);
+};
 
 // const debounce = (func, delay) => {
 //   let timeout;
@@ -30,15 +30,15 @@ export const useMount = (callback: () => void) => {
 //     timeout = setTimeout(function(){
 //       func(...param)
 //     }, delay);
-//   }  
+//   }
 // }
 
-export const useDebounce = (value:any, delay:number) => {
-  const [debouncedValue, setDebouncedValue] = useState(value)
+export const useDebounce = (value: any, delay: number) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
   useEffect(() => {
-    const timeout = setTimeout(() => setDebouncedValue(value), delay)
-    return () => clearTimeout(timeout)
-  }, [value, delay])
+    const timeout = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(timeout);
+  }, [value, delay]);
 
-  return debouncedValue
-}
+  return debouncedValue;
+};
