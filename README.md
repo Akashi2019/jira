@@ -104,3 +104,10 @@ yarn husky add .husky/commit-msg "yarn commitlint --edit $1"
 yarn add json-server -D
 ```
 
+#### qs
+
+```js
+yarn add qs
+yarn add @types/qs -D
+```
+
